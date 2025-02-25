@@ -4,7 +4,7 @@
 
 [build]
   command = "npm ci --legacy-peer-deps && npm run build"
-  publish = "build"
+  publish = "public"
 
 [build.processing]
   skip_processing = true
