@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { StaticImage } from "gatsby-plugin-image";
 import {
@@ -82,24 +82,22 @@ const ContactButton = styled.div`
   }
 `;
 
-const FlowerImage = styled.div`
+const FlowerContainer = styled.div`
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 `;
 
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
 
-  // Updated message API for Ant Design v5
-  const [messageApi, contextHolder] = message.useMessage();
-
   const showCopyMessage = () => {
-    messageApi.success("계좌번호가 복사되었습니다.");
+    message.success("계좌번호가 복사되었습니다.");
   };
 
   return (
     <Wrapper>
-      {contextHolder}
       <Divider
         data-aos="fade-up"
         plain
@@ -108,14 +106,14 @@ const CongratulatoryMoney = () => {
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
 
-      <FlowerImage data-aos="fade-up">
+      <FlowerContainer data-aos="fade-up">
         <StaticImage
           src="../assets/flower3.png"
           alt="Flower"
           width={30}
           placeholder="blurred"
         />
-      </FlowerImage>
+      </FlowerContainer>
 
       <Content data-aos="fade-up">
         축하의 마음을 담아 축의금을 전달해 보세요.
@@ -140,17 +138,17 @@ const CongratulatoryMoney = () => {
         </ContactButton>
       </ButtonWrap>
 
-      {/* Updated Modal implementation for Ant Design v5 */}
+      {/* Ant Design v4에 맞는 Modal 구현 */}
       <Modal
         title={<b>신랑측 계좌번호</b>}
-        open={groomVisible}
+        visible={groomVisible}
         onOk={() => setGroomVisible(false)}
         onCancel={() => setGroomVisible(false)}
-        footer={
-          <Description>
+        footer={[
+          <Description key="description">
             계좌번호 클릭시, 붙여넣기 가능한 텍스트로 복사됩니다.
-          </Description>
-        }
+          </Description>,
+        ]}
       >
         <div>
           <b>부 : {GROOM_FATHER_NAME}</b>
@@ -195,14 +193,14 @@ const CongratulatoryMoney = () => {
 
       <Modal
         title={<b>신부측 계좌번호</b>}
-        open={brideVisible}
+        visible={brideVisible}
         onOk={() => setBrideVisible(false)}
         onCancel={() => setBrideVisible(false)}
-        footer={
-          <Description>
+        footer={[
+          <Description key="description">
             계좌번호 클릭시, 붙여넣기 가능한 텍스트로 복사됩니다.
-          </Description>
-        }
+          </Description>,
+        ]}
       >
         <div>
           <b>부 : {BRIDE_FATHER_NAME}</b>

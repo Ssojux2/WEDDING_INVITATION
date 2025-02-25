@@ -1,15 +1,15 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import {
   WEDDING_DATE,
   WEDDING_LOCATION,
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config.js";
-// Import using Gatsby Image API
+// Gatsby Image API 사용
 import { StaticImage } from "gatsby-plugin-image";
 
-// Styled components updated syntax
+// 스타일드 컴포넌트 (구버전 문법 유지)
 const Layout = styled.div`
   width: 80%;
   max-width: 800px;
@@ -48,7 +48,6 @@ const Schedule = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-// Using React 18 functional component syntax
 const Title = () => {
   return (
     <Layout>
@@ -63,14 +62,7 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      {/* Background image can be added as StaticImage if needed */}
-      {/* <StaticImage
-        src="../assets/background-image.jpg"
-        alt="Wedding Background"
-        placeholder="blurred"
-        layout="fullWidth"
-        style={{ marginTop: "1rem" }}
-      /> */}
+      {/* 배경 이미지는 필요시 StaticImage로 추가 가능 */}
     </Layout>
   );
 };

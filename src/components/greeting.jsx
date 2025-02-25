@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { Divider } from "antd";
 import { StaticImage } from "gatsby-plugin-image";
 import {
@@ -46,7 +46,7 @@ const GroomBride = styled.p`
   font-weight: 500;
 `;
 
-const FlowerImage = styled.div`
+const FlowerContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
@@ -60,14 +60,14 @@ const Greeting = () => {
         <Title data-aos="fade-up">초대합니다</Title>
       </Divider>
 
-      <FlowerImage data-aos="fade-up">
+      <FlowerContainer data-aos="fade-up">
         <StaticImage
           src="../assets/flower1.png"
           alt="Flower"
           width={30}
           placeholder="blurred"
         />
-      </FlowerImage>
+      </FlowerContainer>
 
       <Content data-aos="fade-up">
         인연이란

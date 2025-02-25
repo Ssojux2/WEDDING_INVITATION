@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Button, Divider, message } from "antd";
 import { MessageFilled, LinkOutlined } from "@ant-design/icons";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 import {
   KAKAOTALK_API_TOKEN,
@@ -70,25 +70,22 @@ const LinkShareButton = styled(Button)`
 `;
 
 const Share = () => {
-  // Updated message API for Ant Design v5
-  const [messageApi, contextHolder] = message.useMessage();
-
   useEffect(() => {
-    // Load KakaoTalk SDK script
+    // KakaoTalk SDK 스크립트 로드
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js";
-    script.integrity = "sha384-mXVrIX2T/Kszp6Z1AAymNe92bPFqF/1X1lzHzz1TQBVfIPUahdOs7dVPLaGC9jjG";
-    script.crossOrigin = "anonymous";
+    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
   const createKakaoButton = () => {
-    // Modern KakaoTalk SDK initialization
+    // KakaoTalk SDK 초기화
     if (window.Kakao) {
       const kakao = window.Kakao;
 
@@ -96,8 +93,9 @@ const Share = () => {
         kakao.init(KAKAOTALK_API_TOKEN);
       }
 
-      kakao.Share.sendDefault({
+      kakao.Link.createDefaultButton({
         objectType: 'feed',
+        container: '#sendKakao',
         content: {
           title: `${GROOM_NAME}❤${BRIDE_NAME} 결혼식에 초대합니다`,
           description: "아래의 '청첩장 열기' 버튼을 눌러 읽어주세요🤵👰",
@@ -118,19 +116,21 @@ const Share = () => {
         ],
       });
 
-      messageApi.success("카카오톡으로 청첩장을 공유합니다!");
+      setTimeout(() => {
+        document.getElementById("sendKakao")?.click();
+        message.success("카카오톡으로 청첩장을 공유합니다!");
+      }, 100);
     } else {
-      messageApi.error("카카오톡 SDK를 불러오는데 실패했습니다.");
+      message.error("카카오톡 SDK를 불러오는데 실패했습니다.");
     }
   };
 
   const handleLinkCopy = () => {
-    messageApi.success("청첩장 링크가 복사되었습니다.");
+    message.success("청첩장 링크가 복사되었습니다.");
   };
 
   return (
     <Wrapper>
-      {contextHolder}
       <Divider
         data-aos="fade-up"
         plain
@@ -143,6 +143,7 @@ const Share = () => {
         <KakaoTalkShareButton
           data-aos="fade-up"
           icon={<MessageFilled />}
+          id="sendKakao"
           size="large"
           onClick={createKakaoButton}
         >

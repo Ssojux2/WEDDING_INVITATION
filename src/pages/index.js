@@ -1,58 +1,42 @@
 import React, { useEffect } from "react";
 import { Layout } from "antd";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-// Import components
+// 컴포넌트 가져오기
 import Gallery from "../components/gallery";
 import Greeting from "../components/greeting";
 import Title from "../components/title";
 import Location from "../components/location";
 import CongratulatoryMoney from "../components/congratulatoryMoney";
 import Share from "../components/share";
-// Uncomment if you want to use the Quote component
+// Quote 컴포넌트를 사용하려면 아래 주석을 해제하세요
 // import Quote from "../components/quote";
 
-// Import styles
+// 스타일 가져오기
 import "../styles/index.css";
 
-// Import AOS for animations
+// 애니메이션을 위한 AOS 라이브러리 가져오기
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const { Footer } = Layout;
 
-// Use StaticImage for background if needed
+// 배경을 위한 스타일 컴포넌트
 const Wrapper = styled.div`
   background: #efebe9;
   width: 100%;
   position: relative;
 `;
 
-// SEO Component for Gatsby v5
-export const Head = () => (
-  <>
-    <title>소준섭 & 박범지의 결혼식에 초대합니다</title>
-    <meta name="description" content="2025년 5월 11일, 일요일 오후 2시 - L65호텔웨딩컨벤션, 6층 가든홀" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="소준섭 & 박범지의 결혼식에 초대합니다" />
-    <meta property="og:description" content="2025년 5월 11일, 일요일 오후 2시 - L65호텔웨딩컨벤션, 6층 가든홀" />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </>
-);
-
+// Gatsby v4 SEO 설정
 const IndexPage = () => {
-  // Load Kakao SDK
+  // 카카오 SDK 로드
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js";
-    script.integrity = "sha384-mXVrIX2T/Kszp6Z1AAymNe92bPFqF/1X1lzHzz1TQBVfIPUahdOs7dVPLaGC9jjG";
-    script.crossOrigin = "anonymous";
+    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
     document.body.appendChild(script);
 
     return () => {
@@ -62,21 +46,21 @@ const IndexPage = () => {
     };
   }, []);
 
-  // Initialize AOS animation library
+  // AOS 애니메이션 라이브러리 초기화
   useEffect(() => {
     AOS.init({
       duration: 1500,
-      once: true, // Whether animation should happen only once
+      once: true, // 애니메이션을 한 번만 실행할지 여부
       mirror: false,
     });
   }, []);
 
-  // Audio player with user interaction to satisfy autoplay policies
+  // 사용자 상호작용을 통한 오디오 재생 기능
   useEffect(() => {
     const audio = new Audio('/song.mp3');
     audio.loop = true;
 
-    // Add a button for user interaction to start audio
+    // 사용자 상호작용을 위한 버튼 추가
     const playButton = document.createElement('button');
     playButton.innerText = '💝 배경음악 재생';
     playButton.style.position = 'fixed';
@@ -92,10 +76,10 @@ const IndexPage = () => {
 
     playButton.onclick = () => {
       audio.play().catch(e => console.error("Audio play failed:", e));
-      // Change button text after playing
+      // 재생 후 버튼 텍스트 변경
       playButton.innerText = '🎵 음악 재생 중';
 
-      // Add pause/play toggle
+      // 일시정지/재생 토글 추가
       playButton.onclick = () => {
         if (audio.paused) {
           audio.play();
