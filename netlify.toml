@@ -3,25 +3,16 @@
   NPM_FLAGS = "--legacy-peer-deps"
 
 [build]
-  command = "npm install --legacy-peer-deps && npm run clean && npm run build"
-  publish = "public"
+  command = "npm ci --legacy-peer-deps && npm run build"
+  publish = "build"
 
-[functions]
-  node_bundler = "esbuild"
-
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-  
 [build.processing]
-  skip_processing = false
+  skip_processing = true
 
-[build.processing.css]
-  bundle = true
-  minify = true
+# 배포 타임아웃을 늘립니다
+[build.lifecycle]
+  onSuccess = "curl -X POST -d {} https://api.netlify.com/build_hooks/YOUR_BUILD_HOOK_ID"
 
-[build.processing.js]
-  bundle = true
-  minify = true
-
-[build.processing.images]
-  compress = true
+# 업로드 병렬 처리 수 제한
+[build.environment.upload]
+  max_concurrency = 5
