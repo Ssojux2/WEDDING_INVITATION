@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
 // 일반 이미지 가져오기
 import FlowerImage from "../assets/flower3.png";

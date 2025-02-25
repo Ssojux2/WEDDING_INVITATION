@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Layout, ConfigProvider } from "antd";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 // 컴포넌트 가져오기
