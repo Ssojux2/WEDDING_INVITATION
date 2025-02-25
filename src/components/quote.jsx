@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
+// StaticImage 대신 일반 이미지 가져오기
+import FlowerImage from "../assets/flower1.png";
 
 const Wrapper = styled.div`
   padding: 3rem 2rem;
@@ -31,23 +32,23 @@ const Content = styled.span`
   opacity: 0.9;
 `;
 
-const FlowerImage = styled.div`
+const FlowerContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 `;
 
+const FlowerImg = styled.img`
+  width: 30px;
+  height: auto;
+`;
+
 const Quote = () => {
   return (
     <Wrapper>
-      <FlowerImage data-aos="fade-up">
-        <StaticImage
-          src="../assets/flower1.png"
-          alt="Flower"
-          width={30}
-          placeholder="blurred"
-        />
-      </FlowerImage>
+      <FlowerContainer data-aos="fade-up">
+        <FlowerImg src={FlowerImage} alt="꽃 이미지" />
+      </FlowerContainer>
 
       <ContentContainer data-aos="fade-up">
         <Content>
