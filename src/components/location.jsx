@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 1.125rem;
+  font-size: 1.7rem; /* 1.125 * 1.5 = 1.7rem */
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -27,12 +27,12 @@ const FlowerContainer = styled.div`
 `;
 
 const FlowerImg = styled.img`
-  width: 30px;
+  width: 45px; /* 30 * 1.5 = 45px */
   height: auto;
 `;
 
 const Content = styled.div`
-  font-size: 0.875rem;
+  font-size: 1.3rem; /* 0.875 * 1.5 = 1.3rem */
   line-height: 1.75;
   opacity: 0.85;
   width: 100%;
@@ -50,7 +50,7 @@ const Map = styled.div`
 `;
 
 const SubTitle = styled.span`
-  font-size: 0.95rem;
+  font-size: 1.4rem; /* 0.95 * 1.5 = 1.4rem */
   color: var(--title-color);
   font-weight: 600;
   opacity: 0.85;
@@ -139,7 +139,7 @@ const Location = () => {
         <br />
         SKY-L65 랜드마크타워 6F
         <br />
-        L65호텔웨딩컨벤션 Garden Hall
+        L65호텔웨딩컨벤션 가든홀
         <br />
         <br />
 
