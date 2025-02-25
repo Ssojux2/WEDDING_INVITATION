@@ -3,7 +3,8 @@ import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
 import styled from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { StaticImage } from "gatsby-plugin-image";
+// StaticImage 대신 일반 이미지 가져오기
+import FlowerImage from "../assets/flower3.png";
 import {
   GROOM_NAME,
   GROOM_ACCOUNT_NUMBER,
@@ -88,6 +89,11 @@ const FlowerContainer = styled.div`
   justify-content: center;
 `;
 
+const FlowerImg = styled.img`
+  width: 30px;
+  height: auto;
+`;
+
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
@@ -107,12 +113,7 @@ const CongratulatoryMoney = () => {
       </Divider>
 
       <FlowerContainer data-aos="fade-up">
-        <StaticImage
-          src="../assets/flower3.png"
-          alt="Flower"
-          width={30}
-          placeholder="blurred"
-        />
+        <FlowerImg src={FlowerImage} alt="꽃 이미지" />
       </FlowerContainer>
 
       <Content data-aos="fade-up">

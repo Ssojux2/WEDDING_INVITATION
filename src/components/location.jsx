@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Divider } from "antd";
-import { styled } from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+// StaticImage 대신 일반 이미지 가져오기
+import FlowerImage from "../assets/flower2.png";
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -18,11 +19,16 @@ const Title = styled.span`
   margin-bottom: 0;
 `;
 
-const FlowerImage = styled.div`
+const FlowerContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
+`;
+
+const FlowerImg = styled.img`
+  width: 30px;
+  height: auto;
 `;
 
 const Content = styled.div`
@@ -57,75 +63,58 @@ const TransportInfo = styled.div`
 `;
 
 const Location = () => {
-  const mapContainerRef = useRef(null);
-
-  // Improved Kakao Map integration
+  // 카카오 맵 불러오기
   useEffect(() => {
-    // Create a cleaner script loading approach
-    const loadKakaoMap = () => {
-      // Check if script already exists to prevent duplicates
-      if (document.getElementById('kakao-map-script')) {
-        initializeMap();
-        return;
-      }
+    // 기존 방식을 유지하지만 일부 개선
+    const InstallScript = () => {
+      (function () {
+        let c = window.location.protocol === "https:" ? "https:" : "http:";
+        let a = "16137cec";
 
-      // Create and load the script
-      const script = document.createElement('script');
-      script.id = 'kakao-map-script';
-      script.src = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-      script.async = true;
-      script.onload = initializeMap;
-      document.head.appendChild(script);
-    };
-
-    // Initialize the map after script loads
-    const initializeMap = () => {
-      if (!mapContainerRef.current) return;
-
-      const container = mapContainerRef.current;
-
-      // Load the embedded map with improved error handling
-      try {
-        // Use a modern approach to load the map
-        // Note: In a real implementation, you should use the official Kakao Maps API
-        const mapHtml = `
-          <div id="daumRoughmapContainer1740234367142" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:360px;border-radius:8px;overflow:hidden;"></div>
-          <script charset="UTF-8">
-            new daum.roughmap.Lander({
-              "timestamp": "1740234367142",
-              "key": "2n5b6",
-              "mapWidth": "640",
-              "mapHeight": "360"
-            }).render();
-          </script>
-        `;
-
-        container.innerHTML = mapHtml;
-
-        // Execute scripts in the HTML string
-        const scripts = container.getElementsByTagName('script');
-        for (let i = 0; i < scripts.length; i++) {
-          const script = document.createElement('script');
-          script.charset = scripts[i].charset;
-          script.textContent = scripts[i].textContent;
-          document.head.appendChild(script);
+        if (window.daum && window.daum.roughmap && window.daum.roughmap.cdn) {
+          return;
         }
+        window.daum = window.daum || {};
+        window.daum.roughmap = {
+          cdn: a,
+          URL_KEY_DATA_LOAD_PRE: c + "//t1.daumcdn.net/roughmap/",
+          url_protocal: c,
+        };
+        let b =
+          c +
+          "//t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/" +
+          a +
+          "/roughmapLander.js";
 
-      } catch (error) {
-        console.error('Error loading Kakao map:', error);
-        container.innerHTML = '<p style="text-align:center;padding:30px;">지도를 불러올 수 없습니다. 주소를 확인해 주세요.</p>';
-      }
+        // document.write -> doumnet.body.append로 수정
+        const scriptTag = document.createElement("script");
+        scriptTag.src = b;
+        document.body.appendChild(scriptTag);
+        scriptTag.onload = () => {
+          executeScript();
+        };
+      })();
     };
 
-    // Load the map
-    loadKakaoMap();
+    // 실행 스크립트
+    const executeScript = () => {
+      const scriptTag = document.createElement("script");
+      const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
+        "timestamp" : "1740234367142",
+        "key" : "2n5b6",
+        "mapWidth" : "640",
+        "mapHeight" : "360"
+      }).render();`);
+      scriptTag.appendChild(inlineScript);
+      document.body.appendChild(scriptTag);
+    };
 
-    // Cleanup function
+    // 스크립트 로드 시작
+    InstallScript();
+
+    // 클린업 함수
     return () => {
-      const script = document.getElementById('kakao-map-script');
-      if (script) {
-        script.remove();
-      }
+      // 필요시 특정 스크립트 제거 로직 추가 가능
     };
   }, []);
 
@@ -135,19 +124,15 @@ const Location = () => {
         <Title data-aos="fade-up">오시는 길</Title>
       </Divider>
 
-      <FlowerImage data-aos="fade-up">
-        <StaticImage
-          src="../assets/flower2.png"
-          alt="Flower"
-          width={30}
-          placeholder="blurred"
-        />
-      </FlowerImage>
+      <FlowerContainer data-aos="fade-up">
+        <FlowerImg src={FlowerImage} alt="꽃 이미지" />
+      </FlowerContainer>
 
       <Map
-        ref={mapContainerRef}
+        id="daumRoughmapContainer1740234367142"
+        className="root_daum_roughmap root_daum_roughmap_landing"
         data-aos="fade-up"
-      />
+      ></Map>
 
       <Content data-aos="fade-up">
         <strong>서울 동대문구 왕산로 200</strong>

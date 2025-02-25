@@ -6,10 +6,7 @@ import {
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config.js";
-// Gatsby Image API 사용
-import { StaticImage } from "gatsby-plugin-image";
 
-// 스타일드 컴포넌트 (구버전 문법 유지)
 const Layout = styled.div`
   width: 80%;
   max-width: 800px;
@@ -62,7 +59,6 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      {/* 배경 이미지는 필요시 StaticImage로 추가 가능 */}
     </Layout>
   );
 };

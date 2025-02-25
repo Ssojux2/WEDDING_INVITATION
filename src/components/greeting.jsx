@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Divider } from "antd";
-import { StaticImage } from "gatsby-plugin-image";
+// StaticImage 대신 일반 이미지 가져오기
+import FlowerImage from "../assets/flower1.png";
 import {
   GROOM_NAME,
   GROOM_FATHER_NAME,
@@ -53,6 +54,11 @@ const FlowerContainer = styled.div`
   margin-top: 1rem;
 `;
 
+const FlowerImg = styled.img`
+  width: 30px;
+  height: auto;
+`;
+
 const Greeting = () => {
   return (
     <Wrapper>
@@ -61,12 +67,7 @@ const Greeting = () => {
       </Divider>
 
       <FlowerContainer data-aos="fade-up">
-        <StaticImage
-          src="../assets/flower1.png"
-          alt="Flower"
-          width={30}
-          placeholder="blurred"
-        />
+        <FlowerImg src={FlowerImage} alt="꽃 이미지" />
       </FlowerContainer>
 
       <Content data-aos="fade-up">

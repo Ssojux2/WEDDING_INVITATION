@@ -8,16 +8,6 @@ module.exports = {
     description: `소준섭 & 박범지의 결혼식에 초대합니다`
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/assets/`,
-      },
-    },
+    "gatsby-plugin-styled-components"
   ]
 };
