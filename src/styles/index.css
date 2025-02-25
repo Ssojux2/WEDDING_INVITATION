@@ -1,65 +1,143 @@
 :root {
   --title-color: #d97d83;
+  --title-color-light: rgba(217, 125, 131, 0.7);
+  --text-color: #333333;
+  --bg-color: #efebe9;
+  --card-bg: #ffffff;
+  --border-color: #e2d9d6;
+  --shadow-color: rgba(0, 0, 0, 0.05);
 }
+
 * {
+  box-sizing: border-box;
   font-family: "Noto Serif KR", serif, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* 카카오맵 버튼 없애기 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Improved fade-in animation */
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kakao Map customizations */
 .wrap_controllers {
   display: none !important;
 }
 
 .root_daum_roughmap {
   width: 100% !important;
-  max-height: 240px !important;
+  max-height: 360px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
 }
+
 .root_daum_roughmap_landing {
   margin: auto !important;
 }
+
 .root_daum_roughmap .wrap_btn_zoom {
   display: none !important;
 }
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadein {
-  /* Firefox */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  /* Safari and Chrome */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  /* Opera */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* Customize scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* 폰트 적용 */
+::-webkit-scrollbar-track {
+  background: rgba(217, 125, 131, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 125, 131, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 125, 131, 0.7);
+}
+
+/* Improved buttons and interactive elements */
+button,
+a,
+.interactive {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+a:hover,
+.interactive:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Custom font loading */
 @font-face {
   font-family: "mom_to_daughter";
   src: url("../assets/fonts/mom_to_daughter.woff2") format("woff2"),
@@ -67,4 +145,36 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+/* Accessibility improvements */
+button:focus,
+a:focus,
+input:focus,
+.interactive:focus {
+  outline: 2px solid rgba(217, 125, 131, 0.5);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure images don't overflow containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Print styles for wedding invitation */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }

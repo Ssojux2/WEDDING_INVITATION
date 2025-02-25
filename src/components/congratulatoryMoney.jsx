@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
-import Flower from "../assets/flower3.png";
+import { StaticImage } from "gatsby-plugin-image";
 import {
   GROOM_NAME,
   GROOM_ACCOUNT_NUMBER,
@@ -20,9 +20,10 @@ import {
 } from "../../config";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
-  padding-bottom: 18px;
-  width: 70%;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+  width: 80%;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 `;
@@ -39,21 +40,22 @@ const Content = styled.p`
   font-size: 0.875rem;
   line-height: 1.75;
   opacity: 0.75;
-  margin-bottom: 42px;
+  margin-bottom: 2.5rem;
 `;
 
 const SubContent = styled.p`
   font-size: 0.875rem;
   line-height: 1.75;
   opacity: 0.75;
-  margin-bottom: 42px;
+  margin-bottom: 0;
 `;
 
 const Description = styled.p`
   font-size: 0.875rem;
   line-height: 1.75;
   opacity: 0.65;
-  margin-top: 8px;
+  margin-top: 0.5rem;
+  text-align: center;
 `;
 
 const ButtonWrap = styled.div`
@@ -62,26 +64,42 @@ const ButtonWrap = styled.div`
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  gap: 1rem;
 `;
+
 const ContactButton = styled.div`
   width: 10.75rem;
   border: 1px solid #efddde;
   padding: 2.188rem 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(239, 221, 222, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
+const FlowerImage = styled.div`
+  margin-bottom: 2rem;
 `;
 
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
 
+  // Updated message API for Ant Design v5
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const showCopyMessage = () => {
+    messageApi.success("계좌번호가 복사되었습니다.");
+  };
+
   return (
     <Wrapper>
+      {contextHolder}
       <Divider
         data-aos="fade-up"
         plain
@@ -89,7 +107,16 @@ const CongratulatoryMoney = () => {
       >
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
-      <Image src={Flower} />
+
+      <FlowerImage data-aos="fade-up">
+        <StaticImage
+          src="../assets/flower3.png"
+          alt="Flower"
+          width={30}
+          placeholder="blurred"
+        />
+      </FlowerImage>
+
       <Content data-aos="fade-up">
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
@@ -112,16 +139,18 @@ const CongratulatoryMoney = () => {
           <SubContent>신부측 계좌번호 확인</SubContent>
         </ContactButton>
       </ButtonWrap>
+
+      {/* Updated Modal implementation for Ant Design v5 */}
       <Modal
         title={<b>신랑측 계좌번호</b>}
-        visible={groomVisible}
+        open={groomVisible}
         onOk={() => setGroomVisible(false)}
         onCancel={() => setGroomVisible(false)}
-        footer={[
+        footer={
           <Description>
             계좌번호 클릭시, 붙여넣기 가능한 텍스트로 복사됩니다.
-          </Description>,
-        ]}
+          </Description>
+        }
       >
         <div>
           <b>부 : {GROOM_FATHER_NAME}</b>
@@ -130,7 +159,7 @@ const CongratulatoryMoney = () => {
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {GROOM_FATHER_ACCOUNT_NUMBER}
             </Button>
@@ -143,7 +172,7 @@ const CongratulatoryMoney = () => {
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {GROOM_MOTHER_ACCOUNT_NUMBER}
             </Button>
@@ -156,23 +185,24 @@ const CongratulatoryMoney = () => {
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {GROOM_ACCOUNT_NUMBER}
             </Button>
           </CopyToClipboard>
         </div>
       </Modal>
+
       <Modal
         title={<b>신부측 계좌번호</b>}
-        visible={brideVisible}
+        open={brideVisible}
         onOk={() => setBrideVisible(false)}
         onCancel={() => setBrideVisible(false)}
-        footer={[
+        footer={
           <Description>
             계좌번호 클릭시, 붙여넣기 가능한 텍스트로 복사됩니다.
-          </Description>,
-        ]}
+          </Description>
+        }
       >
         <div>
           <b>부 : {BRIDE_FATHER_NAME}</b>
@@ -181,20 +211,20 @@ const CongratulatoryMoney = () => {
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {BRIDE_FATHER_ACCOUNT_NUMBER}
             </Button>
           </CopyToClipboard>
         </div>
         <div style={{ marginTop: 24, marginBottom: 24 }}>
-          <b>모 :{BRIDE_MOTHER_NAME}</b>
+          <b>모 : {BRIDE_MOTHER_NAME}</b>
           <Divider type="vertical" />
           <CopyToClipboard text={BRIDE_MOTHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {BRIDE_MOTHER_ACCOUNT_NUMBER}
             </Button>
@@ -207,7 +237,7 @@ const CongratulatoryMoney = () => {
             <Button
               type="text"
               style={{ padding: 0, margin: 0 }}
-              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+              onClick={showCopyMessage}
             >
               {BRIDE_ACCOUNT_NUMBER}
             </Button>

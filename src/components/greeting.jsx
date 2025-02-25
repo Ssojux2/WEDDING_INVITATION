@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { Divider } from "antd";
+import { StaticImage } from "gatsby-plugin-image";
 import {
   GROOM_NAME,
   GROOM_FATHER_NAME,
@@ -9,16 +10,16 @@ import {
   BRIDE_FATHER_NAME,
   BRIDE_MOTHER_NAME,
 } from "../../config";
-import Flower from "../assets/flower1.png";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
+  padding-top: 3rem;
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
+  max-width: 800px;
 `;
 
 const Title = styled.p`
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -27,28 +28,29 @@ const Title = styled.p`
 `;
 
 const Content = styled.p`
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.75;
-  opacity: 0.75;
-  margin-bottom: 16px;
+  opacity: 0.8;
+  margin-bottom: 2rem;
   width: 100%;
   text-align: center;
 `;
 
 const GroomBride = styled.p`
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.75;
   opacity: 0.85;
   margin-bottom: 0px;
   width: 100%;
   text-align: center;
+  font-weight: 500;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 1.375rem;
-  padding-bottom: 42px;
+const FlowerImage = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 `;
 
 const Greeting = () => {
@@ -57,7 +59,16 @@ const Greeting = () => {
       <Divider style={{ marginTop: 32, marginBottom: 32 }} plain>
         <Title data-aos="fade-up">초대합니다</Title>
       </Divider>
-      <Image data-aos="fade-up" src={Flower} />
+
+      <FlowerImage data-aos="fade-up">
+        <StaticImage
+          src="../assets/flower1.png"
+          alt="Flower"
+          width={30}
+          placeholder="blurred"
+        />
+      </FlowerImage>
+
       <Content data-aos="fade-up">
         인연이란
         <br />
@@ -82,10 +93,11 @@ const Greeting = () => {
         <br />
         저희의 특별한 여정에 당신의 발자취를 더해주세요.
       </Content>
+
       <GroomBride data-aos="fade-up">
-        {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 준섭
+        {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 {GROOM_NAME}
         <br />
-        {BRIDE_FATHER_NAME} · {BRIDE_MOTHER_NAME}의 장녀 범지
+        {BRIDE_FATHER_NAME} · {BRIDE_MOTHER_NAME}의 장녀 {BRIDE_NAME}
       </GroomBride>
     </Wrapper>
   );
