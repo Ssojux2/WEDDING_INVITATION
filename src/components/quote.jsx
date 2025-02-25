@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FlowerImage from "../assets/flower1.png";
 
 const Wrapper = styled.div`
-  padding: 3rem 2rem;
+  padding: 4.5rem 3rem; /* 3rem * 1.5 = 4.5rem, 2rem * 1.5 = 3rem */
   width: 100%;
   max-width: 800px;
   overflow: hidden;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem; /* 2rem * 1.5 = 3rem */
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -24,22 +24,22 @@ const ContentContainer = styled.div`
 const Content = styled.span`
   display: block;
   margin: 0 auto;
-  font-size: 1.3rem;
+  font-size: 1.95rem; /* 1.3rem * 1.5 = 1.95rem */
   font-family: "mom_to_daughter", serif;
   text-align: center;
   color: var(--title-color);
-  line-height: 2.25rem;
+  line-height: 3.4rem; /* 2.25rem * 1.5 = 3.4rem (약간 조정) */
   opacity: 0.9;
 `;
 
 const FlowerContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* 2rem * 1.5 = 3rem */
 `;
 
 const FlowerImg = styled.img`
-  width: 30px;
+  width: 45px; /* 30px * 1.5 = 45px */
   height: auto;
 `;
 

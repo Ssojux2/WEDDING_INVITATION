@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.125rem;
+  font-size: 1.7rem; /* 1.125 * 1.5 = 1.7rem */
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -29,7 +29,7 @@ const GalleryContainer = styled.div`
     transition: all 0.3s ease;
     
     &.active {
-      border: 2px solid var(--title-color);
+      border: 3px solid var(--title-color); /* 2px → 3px */
     }
   }
   

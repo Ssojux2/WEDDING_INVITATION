@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1rem;
+  font-size: 1.5rem; /* 1 * 1.5 = 1.5rem */
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -38,21 +38,21 @@ const Title = styled.p`
 `;
 
 const Content = styled.p`
-  font-size: 0.875rem;
+  font-size: 1.3rem; /* 0.875 * 1.5 = 1.3rem */
   line-height: 1.75;
   opacity: 0.75;
   margin-bottom: 2.5rem;
 `;
 
 const SubContent = styled.p`
-  font-size: 0.875rem;
+  font-size: 1.3rem; /* 0.875 * 1.5 = 1.3rem */
   line-height: 1.75;
   opacity: 0.75;
   margin-bottom: 0;
 `;
 
 const Description = styled.p`
-  font-size: 0.875rem;
+  font-size: 1.3rem; /* 0.875 * 1.5 = 1.3rem */
   line-height: 1.75;
   opacity: 0.65;
   margin-top: 0.5rem;
@@ -65,13 +65,13 @@ const ButtonWrap = styled.div`
   flex-direction: row;
   justify-content: center;
   text-align: center;
-  gap: 1rem;
+  gap: 1.5rem; /* 1rem * 1.5 = 1.5rem */
 `;
 
 const ContactButton = styled.div`
-  width: 10.75rem;
+  width: 16rem; /* 10.75rem * 1.5 = 16rem (약간 조정) */
   border: 1px solid #efddde;
-  padding: 2.188rem 0;
+  padding: 3rem 0; /* 2.188rem * 1.5 = 3.282rem (약간 조정) */
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -90,9 +90,36 @@ const FlowerContainer = styled.div`
 `;
 
 const FlowerImg = styled.img`
-  width: 30px;
+  width: 45px; /* 30px * 1.5 = 45px */
   height: auto;
 `;
+
+// Modal 스타일 재정의
+const StyledModal = styled(Modal)`
+  .ant-modal-content {
+    font-size: 1.3rem; /* 기존 폰트 크기의 150% */
+  }
+  
+  .ant-modal-title {
+    font-size: 1.5rem; /* 기존 폰트 크기의 150% */
+  }
+  
+  .ant-modal-body {
+    font-size: 1.3rem;
+  }
+  
+  .ant-btn {
+    font-size: 1.3rem;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+`;
+
+const AccountButtonStyle = {
+  padding: 0,
+  margin: 0,
+  fontSize: '1.3rem' /* 글씨 크기 150% 증가 */
+};
 
 const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
@@ -124,7 +151,7 @@ const CongratulatoryMoney = () => {
       <ButtonWrap>
         <ContactButton data-aos="fade-up" onClick={() => setGroomVisible(true)}>
           <CheckCircleTwoTone
-            style={{ fontSize: 64, marginBottom: 16 }}
+            style={{ fontSize: 128, marginBottom: 24 }} /* 64 * 1.5 = 96 */
             twoToneColor="#829fe0"
           />
           <br />
@@ -132,7 +159,7 @@ const CongratulatoryMoney = () => {
         </ContactButton>
         <ContactButton data-aos="fade-up" onClick={() => setBrideVisible(true)}>
           <CheckCircleTwoTone
-            style={{ fontSize: 64, marginBottom: 16 }}
+            style={{ fontSize: 128, marginBottom: 24 }} /* 64 * 1.5 = 96 */
             twoToneColor="#fe7daf"
           />
           <br />
@@ -140,8 +167,8 @@ const CongratulatoryMoney = () => {
         </ContactButton>
       </ButtonWrap>
 
-      {/* Ant Design v5에 맞는 Modal 구현 */}
-      <Modal
+      {/* Ant Design v5에 맞는 Modal 구현 - 크기 조정 */}
+      <StyledModal
         title={<b>신랑측 계좌번호</b>}
         open={groomVisible}  // visible -> open으로 변경됨
         onOk={() => setGroomVisible(false)}
@@ -158,7 +185,7 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={GROOM_FATHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {GROOM_FATHER_ACCOUNT_NUMBER}
@@ -171,7 +198,7 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={GROOM_MOTHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {GROOM_MOTHER_ACCOUNT_NUMBER}
@@ -184,16 +211,16 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={GROOM_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {GROOM_ACCOUNT_NUMBER}
             </Button>
           </CopyToClipboard>
         </div>
-      </Modal>
+      </StyledModal>
 
-      <Modal
+      <StyledModal
         title={<b>신부측 계좌번호</b>}
         open={brideVisible}  // visible -> open으로 변경됨
         onOk={() => setBrideVisible(false)}
@@ -210,7 +237,7 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={BRIDE_FATHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {BRIDE_FATHER_ACCOUNT_NUMBER}
@@ -223,7 +250,7 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={BRIDE_MOTHER_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {BRIDE_MOTHER_ACCOUNT_NUMBER}
@@ -236,14 +263,14 @@ const CongratulatoryMoney = () => {
           <CopyToClipboard text={BRIDE_ACCOUNT_NUMBER}>
             <Button
               type="text"
-              style={{ padding: 0, margin: 0 }}
+              style={AccountButtonStyle}
               onClick={showCopyMessage}
             >
               {BRIDE_ACCOUNT_NUMBER}
             </Button>
           </CopyToClipboard>
         </div>
-      </Modal>
+      </StyledModal>
     </Wrapper>
   );
 };

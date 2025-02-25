@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 1rem;
+  font-size: 1.5rem; /* 1 * 1.5 = 1.5rem */
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -32,8 +32,8 @@ const Title = styled.span`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.5rem; /* 1rem * 1.5 = 1.5rem */
+  margin-top: 2.25rem; /* 1.5rem * 1.5 = 2.25rem */
 `;
 
 const KakaoTalkShareButton = styled(Button)`
@@ -41,8 +41,9 @@ const KakaoTalkShareButton = styled(Button)`
   border-color: #fee500;
   color: #181600;
   font-weight: 500;
-  height: 48px;
+  height: 72px; /* 48px * 1.5 = 72px */
   border-radius: 8px;
+  font-size: 1.3rem; /* 글씨 크기 증가 */
   &:hover {
     background-color: #fcf07e !important;
     border-color: #fcf07e !important;
@@ -60,8 +61,9 @@ const LinkShareButton = styled(Button)`
   border-color: rgba(217, 125, 131, 0.2) !important;
   color: var(--title-color) !important;
   font-weight: 500 !important;
-  height: 48px;
+  height: 72px; /* 48px * 1.5 = 72px */
   border-radius: 8px;
+  font-size: 1.3rem; /* 글씨 크기 증가 */
   &:hover {
     background-color: rgb(217 125 131 / 48%) !important;
     border-color: rgb(217 125 131 / 48%) !important;
@@ -142,7 +144,7 @@ const Share = () => {
       <ButtonContainer>
         <KakaoTalkShareButton
           data-aos="fade-up"
-          icon={<MessageFilled />}
+          icon={<MessageFilled style={{ fontSize: '1.3rem' }} />}
           id="sendKakao"
           size="large"
           onClick={createKakaoButton}
@@ -153,7 +155,7 @@ const Share = () => {
         <CopyToClipboard text={WEDDING_INVITATION_URL}>
           <LinkShareButton
             data-aos="fade-up"
-            icon={<LinkOutlined />}
+            icon={<LinkOutlined style={{ fontSize: '1.3rem' }} />}
             size="large"
             onClick={handleLinkCopy}
           >

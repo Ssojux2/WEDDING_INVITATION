@@ -1,0 +1,2 @@
+# This file ensures the public directory exists
+# It will be removed during the build process
