@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
-// import "antd/dist/antd.css";
-import "antd/dist/reset.css";
+import "antd/dist/antd.css";
 
 import Gallery from "../components/gallery";
 import Greeting from "../components/greeting";
@@ -36,7 +35,7 @@ const IndexPage = () => {
     script.async = true;
     script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
     document.body.appendChild(script);
-  
+
     return () => {
       // Fix this line:
       document.body.removeChild(script);
