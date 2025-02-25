@@ -93,6 +93,8 @@ const Greeting = () => {
         <br />
         <br />
         저희의 특별한 여정에 당신의 발자취를 더해주세요.
+        <br />
+        <br />
       </Content>
 
       <GroomBride data-aos="fade-up">
