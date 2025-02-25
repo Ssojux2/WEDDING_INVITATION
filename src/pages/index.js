@@ -37,8 +37,9 @@ const IndexPage = () => {
     document.body.appendChild(script);
 
     return () => {
-      // Fix this line:
-      document.body.removeChild(script);
+      if (script && document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -49,9 +50,9 @@ const IndexPage = () => {
   });
   return (
     <Wrapper>
-      <audio autoPlay loop>
+      {/* <audio autoPlay loop>
         <source src={Song} />
-      </audio>
+      </audio> */}
       <Title />
       <Greeting />
       <Gallery />
