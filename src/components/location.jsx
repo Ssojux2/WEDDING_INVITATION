@@ -47,11 +47,11 @@ const Location = () => {
   const executeScript = () => {
     const scriptTag = document.createElement("script");
     const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
-    "timestamp" : "1652464367301",
-    "key" : "2a8fe",
-    "mapWidth" : "640",
-    "mapHeight" : "360"
-  }).render();`);
+		"timestamp" : "1740234367142",
+		"key" : "2n5b6",
+		"mapWidth" : "640",
+		"mapHeight" : "360"
+	}).render();`);
     scriptTag.appendChild(inlineScript);
     document.body.appendChild(scriptTag);
   };
@@ -99,27 +99,29 @@ const Location = () => {
       </Divider>
       <Image src={Flower} />
       <Map
-        id="daumRoughmapContainer1652464367301"
+        id="daumRoughmapContainer1740234367142"
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>
-        대구 수성구 두산동 888-2번지
+        서울 동대문구 왕산로 200
         <br />
-        호텔수성 수성스퀘어 3층 피오니홀
+        SKY-L65 랜드마크타워 6F
+        <br />
+        L65호텔웨딩컨벤션 Garden Hall
         <br />
         <br />
         <Title>버스 이용시</Title>
         <br />
         <br />
-        410-1, 401 호텔수성 앞 하차
-        <br />
-        수성1-1, 수성3-1, 814 TBC방송국 앞 하차
+        청량리역환승센터 하차
         <br />
         <br />
         <Title>지하철 이용시</Title>
         <br />
         <br />
-        3호선 수성못역 하차 (도보 10분)
+        경의중앙, 수인분당, 경춘선 청량리역 1번출구 바로 앞
+        <br />
+        1호선 청량리역 5번출구 바로 앞
       </Content>
     </Wrapper>
   );

@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
+import "antd/dist/reset.css";
+
 import Gallery from "../components/gallery";
 import Greeting from "../components/greeting";
 import Title from "../components/title";
@@ -12,11 +14,12 @@ import GroovePaper from "../assets/GroovePaper.png";
 import Location from "../components/location";
 import CongratulatoryMoney from "../components/congratulatoryMoney";
 import Share from "../components/share";
-import Quote from "../components/quote";
+//import Quote from "../components/quote";
 import Song from "../assets/song.mp3";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 
 // markup
 const { Footer } = Layout;
@@ -33,9 +36,10 @@ const IndexPage = () => {
     script.async = true;
     script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
     document.body.appendChild(script);
-
+  
     return () => {
-      document.body.romoveChile(script);
+      // Fix this line:
+      document.body.removeChild(script);
     };
   }, []);
 
@@ -53,7 +57,7 @@ const IndexPage = () => {
       <Greeting />
       <Gallery />
       <Location />
-      <Quote />
+      {/* <Quote /> */}
       <CongratulatoryMoney />
       <Share />
       <Footer
