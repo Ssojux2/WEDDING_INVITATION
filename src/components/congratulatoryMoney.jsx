@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Divider, message, Modal } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import CopyToClipboard from "react-copy-to-clipboard";
-// StaticImage 대신 일반 이미지 가져오기
+// 일반 이미지 가져오기
 import FlowerImage from "../assets/flower3.png";
 import {
   GROOM_NAME,
@@ -98,6 +98,7 @@ const CongratulatoryMoney = () => {
   const [groomVisible, setGroomVisible] = useState(false);
   const [brideVisible, setBrideVisible] = useState(false);
 
+  // Ant Design v5 message API 사용
   const showCopyMessage = () => {
     message.success("계좌번호가 복사되었습니다.");
   };
@@ -139,10 +140,10 @@ const CongratulatoryMoney = () => {
         </ContactButton>
       </ButtonWrap>
 
-      {/* Ant Design v4에 맞는 Modal 구현 */}
+      {/* Ant Design v5에 맞는 Modal 구현 */}
       <Modal
         title={<b>신랑측 계좌번호</b>}
-        visible={groomVisible}
+        open={groomVisible}  // visible -> open으로 변경됨
         onOk={() => setGroomVisible(false)}
         onCancel={() => setGroomVisible(false)}
         footer={[
@@ -194,7 +195,7 @@ const CongratulatoryMoney = () => {
 
       <Modal
         title={<b>신부측 계좌번호</b>}
-        visible={brideVisible}
+        open={brideVisible}  // visible -> open으로 변경됨
         onOk={() => setBrideVisible(false)}
         onCancel={() => setBrideVisible(false)}
         footer={[

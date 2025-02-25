@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Layout } from "antd";
-import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
+import { Layout, ConfigProvider } from "antd";
+import { styled } from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 // 컴포넌트 가져오기
@@ -30,7 +29,15 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-// Gatsby v4 SEO 설정
+// 테마 설정
+const antTheme = {
+  token: {
+    colorPrimary: '#d97d83',
+    borderRadius: 8,
+  },
+};
+
+// Gatsby v5 SEO 설정
 const IndexPage = () => {
   // 카카오 SDK 로드
   useEffect(() => {
@@ -102,26 +109,37 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <Title />
-      <Greeting />
-      <Gallery />
-      <Location />
-      {/* <Quote /> */}
-      <CongratulatoryMoney />
-      <Share />
-      <Footer
-        style={{
-          background: "#D7CCC8",
-          opacity: 0.8,
-          textAlign: "center",
-          padding: "1rem",
-        }}
-      >
-        Copyright © 2025
-      </Footer>
-    </Wrapper>
+    <ConfigProvider theme={antTheme}>
+      <Wrapper>
+        <Title />
+        <Greeting />
+        <Gallery />
+        <Location />
+        {/* <Quote /> */}
+        <CongratulatoryMoney />
+        <Share />
+        <Footer
+          style={{
+            background: "#D7CCC8",
+            opacity: 0.8,
+            textAlign: "center",
+            padding: "1rem",
+          }}
+        >
+          Copyright © {new Date().getFullYear()}
+        </Footer>
+      </Wrapper>
+    </ConfigProvider>
   );
 };
+
+// Gatsby 페이지 컴포넌트에는 Head 컴포넌트를 추가할 수 있습니다 (Gatsby v5 기능)
+export const Head = () => (
+  <>
+    <title>소준섭 & 박범지의 결혼식에 초대합니다</title>
+    <meta name="description" content="소준섭 & 박범지의 결혼식에 초대합니다" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </>
+);
 
 export default IndexPage;

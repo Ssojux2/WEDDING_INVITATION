@@ -23,18 +23,16 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Mobile-first responsive design */
+/* 모바일 우선 반응형 디자인 */
 @media (max-width: 768px) {
   html {
     font-size: 14px;
   }
 }
 
-/* Improved fade-in animation */
+/* 개선된 페이드인 애니메이션 */
 @keyframes fadein {
   from {
     opacity: 0;
@@ -83,7 +81,7 @@ body {
   }
 }
 
-/* Kakao Map customizations */
+/* 카카오맵 커스터마이징 */
 .wrap_controllers {
   display: none !important;
 }
@@ -103,27 +101,7 @@ body {
   display: none !important;
 }
 
-/* Customize scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(217, 125, 131, 0.1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(217, 125, 131, 0.5);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(217, 125, 131, 0.7);
-}
-
-/* Improved buttons and interactive elements */
+/* 버튼 및 상호작용 요소 개선 */
 button,
 a,
 .interactive {
@@ -134,10 +112,9 @@ button:hover,
 a:hover,
 .interactive:hover {
   transform: translateY(-2px);
-  filter: brightness(1.1);
 }
 
-/* Custom font loading */
+/* 커스텀 폰트 로딩 */
 @font-face {
   font-family: "mom_to_daughter";
   src: url("../assets/fonts/mom_to_daughter.woff2") format("woff2"),
@@ -147,7 +124,7 @@ a:hover,
   font-display: swap;
 }
 
-/* Accessibility improvements */
+/* 접근성 개선 */
 button:focus,
 a:focus,
 input:focus,
@@ -156,18 +133,18 @@ input:focus,
   outline-offset: 2px;
 }
 
-/* Smooth scrolling for entire page */
+/* 페이지 전체의 부드러운 스크롤링 */
 html {
   scroll-behavior: smooth;
 }
 
-/* Ensure images don't overflow containers */
+/* 이미지가 컨테이너를 넘치지 않도록 함 */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Print styles for wedding invitation */
+/* 청첩장 인쇄 스타일 */
 @media print {
   body {
     background: white;
