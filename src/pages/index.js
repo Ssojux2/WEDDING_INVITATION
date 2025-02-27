@@ -126,7 +126,7 @@ const IndexPage = () => {
             padding: "1rem",
           }}
         >
-          Copyright © {new Date().getFullYear()}
+          Copyright © 2022 Shin Jooyoung Edit 2025 So Junseop
         </Footer>
       </Wrapper>
     </ConfigProvider>
