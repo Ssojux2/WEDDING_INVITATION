@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.125rem;
+  font-size: 1.7rem; /* 1.125 * 1.5 = 1.7rem */
   color: var(--title-color);
   font-weight: bold;
   opacity: 0.85;
@@ -29,7 +29,7 @@ const Title = styled.p`
 `;
 
 const Content = styled.p`
-  font-size: 0.875rem;
+  font-size: 1.3rem; /* 0.875 * 1.5 = 1.3rem */
   line-height: 1.75;
   opacity: 0.8;
   margin-bottom: 2rem;
@@ -38,7 +38,7 @@ const Content = styled.p`
 `;
 
 const GroomBride = styled.p`
-  font-size: 1rem;
+  font-size: 1.5rem; /* 1 * 1.5 = 1.5rem */
   line-height: 1.75;
   opacity: 0.85;
   margin-bottom: 0px;
@@ -55,7 +55,7 @@ const FlowerContainer = styled.div`
 `;
 
 const FlowerImg = styled.img`
-  width: 30px;
+  width: 45px; /* 30 * 1.5 = 45px */
   height: auto;
 `;
 
