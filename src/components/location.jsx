@@ -150,6 +150,14 @@ const Location = () => {
         </TransportInfo>
 
         <TransportInfo>
+          <SubTitle>대전 전세버스 이용시</SubTitle>
+          <br />
+          대전시 서구 용문동 더샵엘리프 2단지 정문 10시 출발
+          <br />
+          (전세버스 이용하실분은 미리 통보해주시면 감사하겠습니다.)
+        </TransportInfo>
+
+        <TransportInfo>
           <SubTitle>지하철 이용시</SubTitle>
           <br />
           경의중앙, 수인분당, 경춘선 청량리역 1번출구 바로 앞
