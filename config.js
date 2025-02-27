@@ -1,4 +1,4 @@
-export const WEDDING_INVITATION_URL = "https://ornate-ganache-cbd5c5.netlify.app";
+export const WEDDING_INVITATION_URL = "https://weddinginvitationbumgssoju.netlify.app/";
 export const KAKAOTALK_API_TOKEN = "f97dd7f21496fcbc86dcf9bde4e4ca32";
 export const KAKAOTALK_SHARE_IMAGE =
   "https://cdn.pixabay.com/photo/2014/11/13/17/04/heart-529607_960_720.jpg";
