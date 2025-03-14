@@ -3,7 +3,8 @@ export const KAKAOTALK_API_TOKEN = "f97dd7f21496fcbc86dcf9bde4e4ca32";
 export const KAKAOTALK_SHARE_IMAGE =
   "https://cdn.pixabay.com/photo/2014/11/13/17/04/heart-529607_960_720.jpg";
 
-export const WEDDING_DATE = "2025년 5월 11일, 일요일 오후 2시";
+export const WEDDING_DATE = "2025년 5월 11일";
+export const WEDDING_DATE_2 = "일요일 오후 2시";
 export const WEDDING_LOCATION = "L65호텔웨딩컨벤션, 6층 가든홀";
 
 export const GROOM_NAME = "소준섭";

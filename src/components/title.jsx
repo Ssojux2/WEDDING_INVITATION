@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   WEDDING_DATE,
+  WEDDING_DATE_2,
   WEDDING_LOCATION,
   GROOM_NAME,
   BRIDE_NAME,
@@ -45,19 +46,29 @@ const Schedule = styled.p`
   margin-bottom: 1.5rem;
 `;
 
+const Schedule_2 = styled.p`
+  font-size: 1.2rem; /* 1.06 * 1.5 = 1.59rem */
+  opacity: 0.65;
+  margin-bottom: 1.5rem;
+`;
+
 const Title = () => {
   return (
     <Layout>
       <TitleWrapper>
         <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
         <GroomBride>
-          {GROOM_NAME} &#38; {BRIDE_NAME}
+          {GROOM_NAME} ❤️ {BRIDE_NAME}
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}
           <br />
-          {WEDDING_LOCATION}
+          {WEDDING_DATE_2}
         </Schedule>
+        <Schedule_2>
+          <br />
+          {WEDDING_LOCATION}
+        </Schedule_2>
       </TitleWrapper>
     </Layout>
   );
