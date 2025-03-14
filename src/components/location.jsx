@@ -144,25 +144,38 @@ const Location = () => {
         <br />
 
         <TransportInfo>
-          <SubTitle>버스 이용시</SubTitle>
+          <SubTitle>버스 이용 시</SubTitle>
           <br />
           청량리역환승센터 하차
         </TransportInfo>
 
         <TransportInfo>
-          <SubTitle>대전 전세버스 이용시</SubTitle>
+          <SubTitle>대전 전세버스 이용 시</SubTitle>
           <br />
           대전시 서구 용문동 더샵엘리프 2단지 정문 10시 출발
           <br />
-          (전세버스 이용하실분은 미리 통보해주시면 감사하겠습니다.)
+          (전세버스 이용하실 분은
+          <br />
+          미리 통보해주시면 감사하겠습니다.)
         </TransportInfo>
 
         <TransportInfo>
-          <SubTitle>지하철 이용시</SubTitle>
+          <SubTitle>지하철 이용 시</SubTitle>
           <br />
-          경의중앙, 수인분당, 경춘선 청량리역 1번출구 바로 앞
+          경의중앙, 수인분당, 경춘선 청량리역
           <br />
-          1호선 청량리역 5번출구 바로 앞
+          1번출구 바로 앞
+          <br />
+          1호선 청량리역
+          <br />
+          5번출구 바로 앞
+        </TransportInfo>
+        <TransportInfo>
+          <SubTitle>자가용 이용 시</SubTitle>
+          <br />
+          "L65호텔웨딩컨벤션" 또는 "청량리L65" 검색
+          <br />
+          지하 3층, 4층만 주차 가능
         </TransportInfo>
       </Content>
     </Wrapper>

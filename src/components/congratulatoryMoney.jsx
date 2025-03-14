@@ -155,7 +155,7 @@ const CongratulatoryMoney = () => {
             twoToneColor="#829fe0"
           />
           <br />
-          <SubContent>신랑측 계좌번호 확인</SubContent>
+          <SubContent>신랑측 <br /> 계좌번호 확인</SubContent>
         </ContactButton>
         <ContactButton data-aos="fade-up" onClick={() => setBrideVisible(true)}>
           <CheckCircleTwoTone
@@ -163,7 +163,7 @@ const CongratulatoryMoney = () => {
             twoToneColor="#fe7daf"
           />
           <br />
-          <SubContent>신부측 계좌번호 확인</SubContent>
+          <SubContent>신부측 <br /> 계좌번호 확인</SubContent>
         </ContactButton>
       </ButtonWrap>
 
