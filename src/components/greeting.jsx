@@ -54,7 +54,7 @@ const NameHighlight = styled.span`
 `;
 
 const SmallText = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #A7A9AC;
 `;
 
