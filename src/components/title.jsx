@@ -62,10 +62,9 @@ const Title = () => {
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}
-          <br />
-          {WEDDING_DATE_2}
         </Schedule>
         <Schedule_2>
+          {WEDDING_DATE_2}
           <br />
           {WEDDING_LOCATION}
         </Schedule_2>
