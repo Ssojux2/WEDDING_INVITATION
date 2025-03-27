@@ -84,7 +84,7 @@ const Greeting = () => {
       <Content data-aos="fade-up">
         인연이란
         <br />
-        예측하지 못한 곳에서는
+        예측하지 못한 곳에서
         <br />
         선물처럼 찾아오는 것 같습니다.
         <br />
