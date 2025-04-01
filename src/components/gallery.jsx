@@ -4,7 +4,17 @@ import { Divider } from "antd";
 import styled from "styled-components";
 
 // 갤러리 이미지 가져오기
-//import GalleryPhoto1 from "../assets/p1.jpeg";
+import image1 from "../assets/1.jpg";
+import image2 from "../assets/2.jpg";
+import image3 from "../assets/3.jpg";
+import image4 from "../assets/4.jpg";
+import image5 from "../assets/5.jpg";
+import image6 from "../assets/6.jpg";
+import image7 from "../assets/7.jpg";
+import image8 from "../assets/8.jpg";
+import image9 from "../assets/9.jpg";
+import image99 from "../assets/99.jpg";
+import imageP1 from "../assets/p1.jpeg";
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -47,68 +57,68 @@ const GalleryContainer = styled.div`
 
 const images = [
   {
-    original: require("../assets/1.jpg"),
-    thumbnail: require("../assets/1.jpg"),
+    original: image1,
+    thumbnail: image1,
     originalAlt: "웨딩 사진 1",
     thumbnailAlt: "썸네일 1"
   },
   {
-    original: require("../assets/2.jpg"),
-    thumbnail: require("../assets/2.jpg"),
+    original: image2,
+    thumbnail: image2,
     originalAlt: "웨딩 사진 2",
     thumbnailAlt: "썸네일 2"
   },
   {
-    original: require("../assets/3.jpg"),
-    thumbnail: require("../assets/3.jpg"),
+    original: image3,
+    thumbnail: image3,
     originalAlt: "웨딩 사진 3",
     thumbnailAlt: "썸네일 3"
   },
   {
-    original: require("../assets/4.jpg"),
-    thumbnail: require("../assets/4.jpg"),
+    original: image4,
+    thumbnail: image4,
     originalAlt: "웨딩 사진 4",
     thumbnailAlt: "썸네일 4"
   },
   {
-    original: require("../assets/5.jpg"),
-    thumbnail: require("../assets/5.jpg"),
+    original: image5,
+    thumbnail: image5,
     originalAlt: "웨딩 사진 5",
     thumbnailAlt: "썸네일 5"
   },
   {
-    original: require("../assets/6.jpg"),
-    thumbnail: require("../assets/6.jpg"),
+    original: image6,
+    thumbnail: image6,
     originalAlt: "웨딩 사진 6",
     thumbnailAlt: "썸네일 6"
   },
   {
-    original: require("../assets/7.jpg"),
-    thumbnail: require("../assets/7.jpg"),
+    original: image7,
+    thumbnail: image7,
     originalAlt: "웨딩 사진 7",
     thumbnailAlt: "썸네일 7"
   },
   {
-    original: require("../assets/8.jpg"),
-    thumbnail: require("../assets/8.jpg"),
+    original: image8,
+    thumbnail: image8,
     originalAlt: "웨딩 사진 8",
     thumbnailAlt: "썸네일 8"
   },
   {
-    original: require("../assets/9.jpg"),
-    thumbnail: require("../assets/9.jpg"),
+    original: image9,
+    thumbnail: image9,
     originalAlt: "웨딩 사진 9",
     thumbnailAlt: "썸네일 9"
   },
   {
-    original: require("../assets/99.jpg"),
-    thumbnail: require("../assets/99.jpg"),
+    original: image99,
+    thumbnail: image99,
     originalAlt: "웨딩 사진 99",
     thumbnailAlt: "썸네일 99"
   },
   {
-    original: require("../assets/p1.jpeg"),
-    thumbnail: require("../assets/p1.jpeg"),
+    original: imageP1,
+    thumbnail: imageP1,
     originalAlt: "웨딩 사진 p1",
     thumbnailAlt: "썸네일 p1"
   }
