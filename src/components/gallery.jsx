@@ -4,7 +4,7 @@ import { Divider } from "antd";
 import styled from "styled-components";
 
 // 갤러리 이미지 가져오기
-import GalleryPhoto1 from "../assets/p1.jpeg";
+//import GalleryPhoto1 from "../assets/p1.jpeg";
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -45,15 +45,73 @@ const GalleryContainer = styled.div`
   }
 `;
 
-// 이미지 배열 (실제 구현에서는 더 많은 이미지 추가 가능)
 const images = [
   {
-    original: GalleryPhoto1,
-    thumbnail: GalleryPhoto1,
+    original: require("../assets/1.jpg"),
+    thumbnail: require("../assets/1.jpg"),
     originalAlt: "웨딩 사진 1",
     thumbnailAlt: "썸네일 1"
+  },
+  {
+    original: require("../assets/2.jpg"),
+    thumbnail: require("../assets/2.jpg"),
+    originalAlt: "웨딩 사진 2",
+    thumbnailAlt: "썸네일 2"
+  },
+  {
+    original: require("../assets/3.jpg"),
+    thumbnail: require("../assets/3.jpg"),
+    originalAlt: "웨딩 사진 3",
+    thumbnailAlt: "썸네일 3"
+  },
+  {
+    original: require("../assets/4.jpg"),
+    thumbnail: require("../assets/4.jpg"),
+    originalAlt: "웨딩 사진 4",
+    thumbnailAlt: "썸네일 4"
+  },
+  {
+    original: require("../assets/5.jpg"),
+    thumbnail: require("../assets/5.jpg"),
+    originalAlt: "웨딩 사진 5",
+    thumbnailAlt: "썸네일 5"
+  },
+  {
+    original: require("../assets/6.jpg"),
+    thumbnail: require("../assets/6.jpg"),
+    originalAlt: "웨딩 사진 6",
+    thumbnailAlt: "썸네일 6"
+  },
+  {
+    original: require("../assets/7.jpg"),
+    thumbnail: require("../assets/7.jpg"),
+    originalAlt: "웨딩 사진 7",
+    thumbnailAlt: "썸네일 7"
+  },
+  {
+    original: require("../assets/8.jpg"),
+    thumbnail: require("../assets/8.jpg"),
+    originalAlt: "웨딩 사진 8",
+    thumbnailAlt: "썸네일 8"
+  },
+  {
+    original: require("../assets/9.jpg"),
+    thumbnail: require("../assets/9.jpg"),
+    originalAlt: "웨딩 사진 9",
+    thumbnailAlt: "썸네일 9"
+  },
+  {
+    original: require("../assets/99.jpg"),
+    thumbnail: require("../assets/99.jpg"),
+    originalAlt: "웨딩 사진 99",
+    thumbnailAlt: "썸네일 99"
+  },
+  {
+    original: require("../assets/p1.jpeg"),
+    thumbnail: require("../assets/p1.jpeg"),
+    originalAlt: "웨딩 사진 p1",
+    thumbnailAlt: "썸네일 p1"
   }
-  // 더 많은 이미지 추가 가능
 ];
 
 const Gallery = () => {
