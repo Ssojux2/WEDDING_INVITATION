@@ -43,45 +43,94 @@ const GalleryContainer = styled.div`
     border-radius: 4px;
     overflow: hidden;
     transition: all 0.3s ease;
-    
+
     &.active {
-      border: 3px solid var(--title-color); /* 2px → 3px */
+      border: 3px solid var(--title-color);
     }
   }
-  
+
   .image-gallery-content {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
-  
+
   .image-gallery-slide {
     border-radius: 8px;
     overflow: hidden;
-    background-color: transparent; /* 슬라이드 배경 투명 처리 */
+    background-color: transparent;
   }
 
-  /* === CSS 수정 부분 시작 === */
+  /* === 이미지 및 전체화면 스타일 === */
   .image-gallery-image img {
-    object-fit: contain; /* 이미지 비율 유지, 컨테이너 안에 맞춤 */
+    object-fit: contain;
     width: 100%;
-    height: 100%; /* 갤러리 높이에 맞춤 */
-    max-height: 75vh; /* 화면 높이의 75% 이상 커지지 않도록 제한 (값 조절 가능) */
-    border-radius: 8px; /* 이미지 자체에도 radius 적용 */
+    height: 100%;
+    max-height: 75vh; /* 모바일 세로 길이 제한 */
+    border-radius: 8px;
   }
 
-  /* 썸네일 이미지 스타일 (선택 사항) */
   .image-gallery-thumbnail img {
-    object-fit: cover; /* 썸네일은 꽉 채우는게 보기 좋음 */
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
-  
-  /* 전체 화면 모달 z-index 높이기 */
+
   .image-gallery-fullscreen-modal {
     z-index: 9999 !important;
   }
-  /* === CSS 수정 부분 끝 === */
+
+  /* === 화살표 위치 고정 CSS 추가 === */
+  .image-gallery-left-nav,
+  .image-gallery-right-nav {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 15px !important;
+    font-size: 2.5em !important;
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-radius: 50% !important;
+    z-index: 10 !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .image-gallery-left-nav:hover,
+  .image-gallery-right-nav:hover {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .image-gallery-left-nav {
+    left: 15px !important;
+  }
+
+  .image-gallery-right-nav {
+    right: 15px !important;
+  }
+
+  /* 모바일 환경 조정 */
+  @media (max-width: 768px) {
+    .image-gallery-left-nav,
+    .image-gallery-right-nav {
+      padding: 10px !important;
+      font-size: 2em !important;
+    }
+    .image-gallery-left-nav {
+      left: 10px !important;
+    }
+    .image-gallery-right-nav {
+      right: 10px !important;
+    }
+
+    /* 모바일 전체 화면 시 이미지 높이 제한 완화 (선택 사항) */
+    .image-gallery.fullscreen .image-gallery-image img {
+       max-height: 90vh;
+    }
+  }
 `;
 
 const images = [
