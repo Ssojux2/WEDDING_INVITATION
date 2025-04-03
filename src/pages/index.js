@@ -62,52 +62,6 @@ const IndexPage = () => {
     });
   }, []);
 
-  // 사용자 상호작용을 통한 오디오 재생 기능
-  useEffect(() => {
-    const audio = new Audio('/song.mp3');
-    audio.loop = true;
-
-    // 사용자 상호작용을 위한 버튼 추가
-    const playButton = document.createElement('button');
-    playButton.innerText = '💝 배경음악 재생';
-    playButton.style.position = 'fixed';
-    playButton.style.bottom = '20px';
-    playButton.style.right = '20px';
-    playButton.style.zIndex = '1000';
-    playButton.style.padding = '8px 16px';
-    playButton.style.borderRadius = '20px';
-    playButton.style.backgroundColor = 'rgba(217, 125, 131, 0.8)';
-    playButton.style.color = 'white';
-    playButton.style.border = 'none';
-    playButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
-
-    playButton.onclick = () => {
-      audio.play().catch(e => console.error("Audio play failed:", e));
-      // 재생 후 버튼 텍스트 변경
-      playButton.innerText = '🎵 음악 재생 중';
-
-      // 일시정지/재생 토글 추가
-      playButton.onclick = () => {
-        if (audio.paused) {
-          audio.play();
-          playButton.innerText = '🎵 음악 재생 중';
-        } else {
-          audio.pause();
-          playButton.innerText = '🔇 음악 일시정지';
-        }
-      };
-    };
-
-    document.body.appendChild(playButton);
-
-    return () => {
-      audio.pause();
-      if (document.body.contains(playButton)) {
-        document.body.removeChild(playButton);
-      }
-    };
-  }, []);
-
   return (
     <ConfigProvider theme={antTheme}>
       <Wrapper>

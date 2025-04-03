@@ -15,6 +15,12 @@ import image8 from "../assets/8.jpg";
 import image9 from "../assets/9.jpg";
 import image99 from "../assets/99.jpg";
 import imageP1 from "../assets/p1.jpeg";
+import imageA from "../assets/a.jpg";
+import imageB from "../assets/b.jpg";
+import imageC from "../assets/c.jpg";
+import imageD from "../assets/d.jpg";
+import imageE from "../assets/e.jpg";
+import imageF from "../assets/f.jpg";
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -121,6 +127,42 @@ const images = [
     thumbnail: imageP1,
     originalAlt: "웨딩 사진 p1",
     thumbnailAlt: "썸네일 p1"
+  },
+  {
+    original: imageA,
+    thumbnail: imageA,
+    originalAlt: "웨딩 사진 a",
+    thumbnailAlt: "썸네일 a"
+  },
+  {
+    original: imageB,
+    thumbnail: imageB,
+    originalAlt: "웨딩 사진 b",
+    thumbnailAlt: "썸네일 b"
+  },
+  {
+    original: imageC,
+    thumbnail: imageC,
+    originalAlt: "웨딩 사진 c",
+    thumbnailAlt: "썸네일 c"
+  },
+  {
+    original: imageD,
+    thumbnail: imageD,
+    originalAlt: "웨딩 사진 d",
+    thumbnailAlt: "썸네일 d"
+  },
+  {
+    original: imageE,
+    thumbnail: imageE,
+    originalAlt: "웨딩 사진 e",
+    thumbnailAlt: "썸네일 e"
+  },
+  {
+    original: imageF,
+    thumbnail: imageF,
+    originalAlt: "웨딩 사진 f",
+    thumbnailAlt: "썸네일 f"
   }
 ];
 

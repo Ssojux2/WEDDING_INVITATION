@@ -142,7 +142,7 @@ const Share = () => {
       </Divider>
 
       <ButtonContainer>
-        <KakaoTalkShareButton
+        {/* <KakaoTalkShareButton
           data-aos="fade-up"
           icon={<MessageFilled style={{ fontSize: '1.3rem' }} />}
           id="sendKakao"
@@ -150,7 +150,7 @@ const Share = () => {
           onClick={createKakaoButton}
         >
           카카오톡으로 공유하기
-        </KakaoTalkShareButton>
+        </KakaoTalkShareButton> */}
 
         <CopyToClipboard text={WEDDING_INVITATION_URL}>
           <LinkShareButton
