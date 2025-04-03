@@ -58,10 +58,34 @@ const GalleryContainer = styled.div`
   .image-gallery-slide {
     border-radius: 8px;
     overflow: hidden;
+    background-color: transparent; /* 슬라이드 배경 투명 처리 */
   }
+
+  /* === CSS 수정 부분 시작 === */
+  .image-gallery-image img {
+    object-fit: contain; /* 이미지 비율 유지, 컨테이너 안에 맞춤 */
+    width: 100%;
+    height: 100%; /* 갤러리 높이에 맞춤 */
+    max-height: 75vh; /* 화면 높이의 75% 이상 커지지 않도록 제한 (값 조절 가능) */
+    border-radius: 8px; /* 이미지 자체에도 radius 적용 */
+  }
+
+  /* 썸네일 이미지 스타일 (선택 사항) */
+  .image-gallery-thumbnail img {
+    object-fit: cover; /* 썸네일은 꽉 채우는게 보기 좋음 */
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 전체 화면 모달 z-index 높이기 */
+  .image-gallery-fullscreen-modal {
+    z-index: 9999 !important;
+  }
+  /* === CSS 수정 부분 끝 === */
 `;
 
 const images = [
+  // 이미지 배열은 이전과 동일 ...
   {
     original: image1,
     thumbnail: image1,
@@ -181,7 +205,7 @@ const Gallery = () => {
         <ImageGallery
           items={images}
           showPlayButton={false}
-          showFullscreenButton={true}
+          showFullscreenButton={true} /* 전체화면 버튼 활성화 확인 */
           showThumbnails={true}
           slideInterval={4000}
           slideDuration={450}
