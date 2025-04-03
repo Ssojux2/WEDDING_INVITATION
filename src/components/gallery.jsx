@@ -80,28 +80,32 @@ const GalleryContainer = styled.div`
     z-index: 9999 !important;
   }
 
-  /* === 화살표 위치 고정 CSS 추가 === */
+  /* === 화살표 위치 고정 (배경 제거 및 가독성 개선) === */
   .image-gallery-left-nav,
   .image-gallery-right-nav {
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     padding: 15px !important;
-    font-size: 2.5em !important;
-    color: white !important;
-    background-color: rgba(0, 0, 0, 0.4) !important;
+    font-size: 2.5em !important;   /* 아이콘 크기 */
+    color: white !important;       /* 아이콘 색상 */
+    background-color: transparent !important; /* 배경색 투명하게 변경 */
     border-radius: 50% !important;
     z-index: 10 !important;
     outline: none !important;
     border: none !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* box-shadow 제거 또는 조정 (선택) */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* 텍스트 그림자 추가 */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* 전환 효과 변경 */
   }
 
   .image-gallery-left-nav:hover,
   .image-gallery-right-nav:hover {
-      background-color: rgba(0, 0, 0, 0.6) !important;
+      /* background-color: rgba(0, 0, 0, 0.6) !important; */ /* 호버 시 배경색 제거 */
+      color: #eee !important; /* 호버 시 아이콘 색상 약간 밝게 (선택 사항) */
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* 호버 시 그림자 강조 */
   }
 
   .image-gallery-left-nav {
